@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dotnetlinux
@@ -10,7 +10,7 @@ spec:
         app: dotnetlinux
     spec:
       containers:
-        - image: "brunoterkaly/dotnetlinux"
+        - image: "k21academy/core-app-image"
           imagePullPolicy: Always
           name: dotnetlinux
           ports:
