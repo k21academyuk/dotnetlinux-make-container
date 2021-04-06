@@ -1,17 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: dotnetlinux
   name: dotnetlinux
 spec:
-  replicas: 1
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dotnetlinux
   template:
     metadata:
       labels:
         app: dotnetlinux
     spec:
       containers:
-        - image: "k21academy/core-app-image"
-          imagePullPolicy: Always
-          name: dotnetlinux
-          ports:
-            - containerPort: 80
+      - image: k21academy/core-app-image
+        name: core-app-image
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 80
